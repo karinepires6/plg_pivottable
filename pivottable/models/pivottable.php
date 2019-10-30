@@ -50,7 +50,7 @@ class FabrikModelPivotTable extends FabrikFEModelVisualization
 		// Load the results as a list of stdClass objects (see later for more options on retrieving data).
 		$results = $db->loadObjectList();
 
-		$csvfile = $urlcsv . "tmp/". $results[0]->db_table_name . "-export.csv";
+		$csvfile = $urlcsv . "tmp/" . $results[0]->db_table_name . "-export.csv";
 
 		return json_encode($csvfile);
 	}
@@ -68,7 +68,7 @@ class FabrikModelPivotTable extends FabrikFEModelVisualization
 	{
 		$listid	= $this->getListId();
 		$db = JFactory::getDbo();
-		
+
 		$query = $db->getQuery(true);
 		$query->select('db_table_name');
 		$query->from($db->quoteName('#__fabrik_lists'));
@@ -95,6 +95,7 @@ class FabrikModelPivotTable extends FabrikFEModelVisualization
 		 * */
 		$urlcsv = JUri::base();
 		$params = $this->getParams();
+
 		$listid = $params->get('pivottable_table');
 		$urlcsv .= 'administrator/index.php?option=com_fabrik&view=list&listid=' . $listid . '&format=csv&download=1';
 

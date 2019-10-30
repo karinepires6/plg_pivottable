@@ -22,6 +22,7 @@ $cache->clean();
 	<?php
 	}
 	?>
+	<input id="root_url" type="hidden" class="root_url" value="<?php echo $this->urlbase ?>"/>
 
 	<?php
 	$user = JFactory::getUser();

@@ -5,14 +5,14 @@
  * @license:   GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
 jQuery(document).ready(function () {
-	const root_url = urlBaseForLoadingFiles();
-	define(['jquery', root_url + '/plugins/fabrik_visualization/pivottable/dist/jquery-ui.min.js',
-		root_url + '/plugins/fabrik_visualization/pivottable/dist/jquery.ui.touch-punch.min.js',
-		root_url + '/plugins/fabrik_visualization/pivottable/dist/pivot.js',
-		root_url + '/plugins/fabrik_visualization/pivottable/dist/papaparse.min.js',
-		root_url + '/plugins/fabrik_visualization/pivottable/dist/plotly.js',
-		root_url + '/plugins/fabrik_visualization/pivottable/dist/plotly-basic-latest.min.js',
-		root_url + '/plugins/fabrik_visualization/pivottable/dist/plotly_renderers.min.js'],
+	const root_url = document.getElementById('root_url').value;
+	define(['jquery', root_url + 'plugins/fabrik_visualization/pivottable/dist/jquery-ui.min.js',
+		root_url + 'plugins/fabrik_visualization/pivottable/dist/jquery.ui.touch-punch.min.js',
+		root_url + 'plugins/fabrik_visualization/pivottable/dist/pivot.js',
+		root_url + 'plugins/fabrik_visualization/pivottable/dist/papaparse.min.js',
+		root_url + 'plugins/fabrik_visualization/pivottable/dist/plotly.js',
+		root_url + 'plugins/fabrik_visualization/pivottable/dist/plotly-basic-latest.min.js',
+		root_url + 'plugins/fabrik_visualization/pivottable/dist/plotly_renderers.min.js'],
 		function (jQuery, jQueryUI, jQueryTouch, pivotUI, Papa) {
 			window.fbVisPivotTable = new Class({
 
@@ -26,7 +26,7 @@ jQuery(document).ready(function () {
 				},
 
 				init: function () {
-					var dataUrl = this.options.urlbase + 'index.php/' + this.options.list_name + "/list/" + this.options.list_id + "?format=csv";
+					var dataUrl = this.options.urlbase + this.options.list_name + "/list/" + this.options.list_id + "?format=csv";
 					this.options.contextUrl = 
 					Papa.parse(dataUrl, {
 						download: true,
@@ -56,16 +56,5 @@ jQuery(document).ready(function () {
 		var str = this;
 		return str.replace(new RegExp(find, 'g'), replace);
 	};
-
-	function urlBaseForLoadingFiles() {
-		const root_url = window.location.href;
-		var pos1 = root_url.indexOf("/");
-		var pos2 = root_url.indexOf("/", pos1 + 1);
-		var pos3 = root_url.indexOf("/", pos2 + 1);
-		//var pos4 = root_url.indexOf("/", pos3 + 1);
-
-		//return root_url.substring(0, pos4);
-		return root_url.substring(0, pos3);
-	}
 
 });
