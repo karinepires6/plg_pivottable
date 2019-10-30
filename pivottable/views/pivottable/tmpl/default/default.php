@@ -17,6 +17,7 @@ $cache = JFactory::getCache('com_rsform');
 $cache->clean();
 ?>
 <div id="<?php echo $this->containerId; ?>" class="fabrik_visualization">
+	
 	<?php if ($this->params->get('show-title', 1)) { ?>
 		<h1><?php echo $row->label; ?></h1>
 	<?php
@@ -80,7 +81,7 @@ $cache->clean();
 			window.location.reload(true);
 		}
 	</script>
-
+	<?php echo '<script type="text/javascript" ' . 'src="plugins/fabrik_visualization/pivottable/dist/jquery-ui.min.js"></script>' ?>
 	<div id="my-pivottable"></div>
 
 </div>

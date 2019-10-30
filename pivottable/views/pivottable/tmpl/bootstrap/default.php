@@ -23,7 +23,7 @@ $cache->clean();
 	<?php
 	}
 	?>
-	<input id="root_url" type="hidden" class="root_url" value="<?php echo $this->urlbase ?>"/>
+	<input id="root_url" type="hidden" class="root_url" value="<?php echo $this->urlbase ?>" />
 
 	<?php
 	$user = JFactory::getUser();
@@ -81,6 +81,7 @@ $cache->clean();
 		}
 	</script>
 
+	<?php echo '<script type="text/javascript" ' . 'src="plugins/fabrik_visualization/pivottable/dist/jquery-ui.min.js"></script>' ?>
 	<div id="my-pivottable"></div>
 
 </div>
