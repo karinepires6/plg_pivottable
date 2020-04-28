@@ -28,7 +28,8 @@ jQuery(document).ready(function () {
 				init: function () {
 					//localhost test
 					//var dataUrl = this.options.urlbase + 'index.php/' + this.options.list_name + "/list/" + this.options.list_id + "?format=csv";
-					var dataUrl = this.options.urlbase + this.options.list_name + "/list/" + this.options.list_id + "?format=csv";
+					//var dataUrl = this.options.urlbase + this.options.list_name + "/list/" + this.options.list_id + "?format=csv";
+					var dataUrl = window.location.href + '?option=com_fabrik&view=list&listid=' + this.options.list_id + '&format=csv';
 					this.options.contextUrl = 
 					Papa.parse(dataUrl, {
 						download: true,
